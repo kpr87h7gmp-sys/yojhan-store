@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOJHAN-STORE | Paneles Free Fire</title>
+  <link rel="icon" type="image/png" href="assets/yojhan-logo.png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sxnsi-style.css">
+</head>
+<body data-catalog="panels">
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <a href="index.html#inicio" class="logo">
+        <img src="assets/yojhan-logo.png" alt="Logo YOJHAN-STORE">
+        <span>YOJHAN-STORE</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <div class="nav-menu">
+          <a href="#inicio" class="nav-link active">Inicio</a>
+          <a href="#productos" class="nav-link">Productos</a>
+          <a href="#equipo" class="nav-link">Equipo</a>
+          <a href="#reseñas" class="nav-link">Reseñas</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+        </div>
+        <div class="nav-actions">
+          <a href="https://wa.me/18493753965" target="_blank" rel="noopener noreferrer" class="btn-primary whatsapp-tracked" data-source="barra-superior"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" type="button" aria-label="Abrir menú" onclick="document.getElementById('navLinks').classList.toggle('active')">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-layout">
+        <div>
+          <div class="hero-badge"><i class="fas fa-shield-halved"></i> Productos premium para FREE FIRE</div>
+          <h1 class="hero-title">YOJHAN STORE</h1>
+          <p class="hero-desc">Tienda directa de paneles Free Fire con catalogo actualizado, estilo rojo oscuro y compra rapida por WhatsApp. Elige tu producto, selecciona los dias y manda el mensaje listo.</p>
+          <div class="hero-actions">
+            <a href="#productos" class="btn-primary"><i class="fas fa-layer-group"></i> Ver productos</a>
+            <a href="https://wa.me/18493753965" target="_blank" rel="noopener noreferrer" class="btn-glass whatsapp-tracked" data-source="hero-whatsapp"><i class="fab fa-whatsapp"></i> Hablar ahora</a>
+          </div>
+        </div>
+        <div class="hero-logo" aria-label="Logo 3D animado YOJHAN-STORE">
+          <canvas id="sxnsiHero3d"></canvas>
+          <div class="hero-logo-fallback" aria-hidden="true">
+            <div class="logo-3d-card"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split-band">
+      <div class="container feature-grid">
+        <article class="feature">
+          <i class="fas fa-bolt"></i>
+          <h3>Compra directa</h3>
+          <p>Cada boton abre WhatsApp en otra pestaña con el producto y la opcion seleccionada.</p>
+        </article>
+        <article class="feature">
+          <i class="fas fa-sliders"></i>
+          <h3>Catalogo editable</h3>
+          <p>El panel privado permite cambiar productos, precios, opciones, orden y disponibilidad.</p>
+        </article>
+        <article class="feature">
+          <i class="fas fa-database"></i>
+          <h3>Listo para Railway</h3>
+          <p>La base MySQL se prepara sola y el healthcheck responde para desplegar sin pasos raros.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="productos">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Productos <span class="text-gradient">Free Fire</span></h2>
+          <p class="section-subtitle">Tarjetas limpias con imagen propia para cada producto, precio claro y mensaje automatico a WhatsApp.</p>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section split-band" id="equipo">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Equipo <span class="text-gradient">YOJHAN</span></h2>
+          <p class="section-subtitle">Identidad de la tienda, soporte directo y desarrollo web.</p>
+        </div>
+        <div class="team-grid">
+          <article class="team-card">
+            <img class="team-logo" src="assets/yojhan-logo.png" alt="YOJHAN">
+            <h3>YOJHAN</h3>
+            <p>Dueño</p>
+          </article>
+          <article class="team-card">
+            <img class="team-logo" src="assets/yojhan-logo.png" alt="Emmanuel">
+            <h3>Emmanuel</h3>
+            <p>Developer Web</p>
+          </article>
+          <article class="team-card">
+            <img class="team-logo" src="assets/yojhan-logo.png" alt="Emmanuel soporte">
+            <h3>Emmanuel</h3>
+            <p>Soporte Web</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reseñas">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Lo que dicen <span class="text-gradient">los clientes</span></h2>
+        </div>
+        <div class="reviews-grid">
+          <article class="review-card"><div class="stars">★★★★★</div><p>La pagina se ve seria, los precios estan claros y el mensaje de WhatsApp sale completo.</p></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>Elegí el producto, mande el mensaje y me atendieron rapido sin tener que escribir todo.</p></article>
+          <article class="review-card"><div class="stars">★★★★★</div><p>El catalogo se entiende facil desde celular y se ve profesional.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Preguntas Frecuentes</h2>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item">
+            <button class="faq-question" type="button">¿Como compro? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">Elige un producto, selecciona la opcion y pulsa Comprar. WhatsApp se abre con todo listo para confirmar.</div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button">¿Puedo preguntar compatibilidad? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">Si. El mensaje llega con el producto y la opcion para que el soporte confirme detalles antes de finalizar.</div>
+          </article>
+          <article class="faq-item">
+            <button class="faq-question" type="button">¿Los productos pueden cambiar? <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-answer">Si. El catalogo puede actualizar precios, opciones, orden y disponibilidad desde el panel privado.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>YOJHAN-STORE</h3>
+          <p>Productos Free Fire con compra directa por WhatsApp, catalogo actualizado y soporte directo.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Enlaces</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Soporte</h4>
+          <ul>
+            <li><a href="https://wa.me/18493753965" class="whatsapp-tracked" data-source="footer-soporte">WhatsApp</a></li>
+            <li><a href="#faq">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 YOJHAN-STORE. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <div id="toastMsg" class="toast-notification"><i class="fab fa-whatsapp"></i><span id="toastText">Abriendo WhatsApp...</span></div>
+  <script src="assets/security-guard.js"></script>
+  <script src="assets/sxnsi-main.js"></script>
+  <script type="module" src="assets/sxnsi-hero-3d.js"></script>
+</body>
+</html>
