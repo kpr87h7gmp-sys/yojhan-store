@@ -73,53 +73,56 @@ def text_center(draw, pos, text, fnt, fill=WHITE, stroke=BLACK, stroke_width=2):
 
 def product_card(filename, title, badge, subtitle, price_line, initials):
     random.seed(title)
-    w, h = 1200, 820
+    w, h = 1200, 800
     base = Image.new("RGB", (w, h), BLACK)
     px = base.load()
     for y in range(h):
         for x in range(w):
-            d = math.hypot((x - w * 0.55) / w, (y - h * 0.42) / h)
-            red_boost = max(0, 1 - d * 2.2)
+            d = math.hypot((x - w * 0.46) / w, (y - h * 0.28) / h)
+            red_boost = max(0, 1 - d * 2.35)
+            pale = max(0, 1 - math.hypot((x - w * 0.3) / w, (y - h * 0.05) / h) * 2.0)
             px[x, y] = (
-                min(255, int(5 + red_boost * 74)),
-                min(255, int(5 + red_boost * 8)),
-                min(255, int(8 + red_boost * 15)),
+                min(255, int(4 + red_boost * 50 + pale * 16)),
+                min(255, int(4 + red_boost * 6 + pale * 16)),
+                min(255, int(6 + red_boost * 10 + pale * 17)),
             )
 
     img = base.convert("RGBA")
     draw = ImageDraw.Draw(img, "RGBA")
 
-    for gx in range(-40, w, 80):
-        draw.line((gx, 0, gx + 160, h), fill=(255, 255, 255, 18), width=1)
-    for gy in range(40, h, 85):
-        draw.line((0, gy, w, gy - 90), fill=(255, 255, 255, 13), width=1)
+    for gx in range(-110, w + 110, 78):
+        draw.line((gx, 0, gx + 130, h), fill=(255, 255, 255, 15), width=1)
+    for gy in range(36, h, 70):
+        draw.line((0, gy, w, gy - 75), fill=(255, 255, 255, 11), width=1)
 
-    for i in range(42):
-        x = random.randint(0, w)
-        y = random.randint(0, h)
-        r = random.randint(1, 4)
-        draw.ellipse((x-r, y-r, x+r, y+r), fill=(255, 30, 50, random.randint(80, 180)))
+    for i in range(34):
+        x = random.randint(16, w - 16)
+        y = random.randint(16, h - 16)
+        r = random.randint(1, 3)
+        draw.ellipse((x-r, y-r, x+r, y+r), fill=(255, 28, 52, random.randint(70, 150)))
 
-    draw.rounded_rectangle((54, 58, w - 54, h - 58), radius=34, outline=(255, 255, 255, 75), width=2, fill=(0, 0, 0, 50))
-    draw.rounded_rectangle((76, 86, w - 76, 372), radius=34, outline=(255, 255, 255, 54), width=2, fill=(0, 0, 0, 80))
-    draw.rounded_rectangle((88, 88, 235, 148), radius=28, fill=(10, 10, 12, 230), outline=(255, 255, 255, 50), width=1)
-    text_center(draw, (161, 116), badge, font(30), fill=WHITE, stroke=(0, 0, 0), stroke_width=1)
+    draw.rounded_rectangle((44, 50, w - 44, h - 50), radius=34, outline=(255, 255, 255, 70), width=2, fill=(0, 0, 0, 46))
+    draw.rounded_rectangle((82, 92, w - 82, h - 130), radius=34, outline=(255, 255, 255, 48), width=2, fill=(0, 0, 0, 86))
+    cx, cy = w // 2, h // 2 + 8
+    glow_line(draw, (240, 244, 442, 240), fill=(255, 28, 52), width=4)
+    glow_line(draw, (758, 560, 956, 548), fill=(255, 28, 52), width=4)
+    draw.line((134, 602, 1044, 602), fill=(255, 255, 255, 62), width=2)
 
-    cx, cy = w // 2, 230
-    for radius, alpha in [(155, 28), (126, 44), (96, 70)]:
+    screen = (cx - 54, 104, cx + 54, 160)
+    draw.rounded_rectangle(screen, radius=7, outline=(244, 244, 244, 230), width=9)
+    draw.line((cx, 160, cx, 184), fill=(244, 244, 244, 230), width=9)
+    draw.rounded_rectangle((cx - 38, 184, cx + 38, 195), radius=5, fill=(244, 244, 244, 230))
+
+    for radius, alpha in [(170, 25), (132, 42), (97, 66)]:
         draw.ellipse((cx-radius, cy-radius, cx+radius, cy+radius), outline=(255, 255, 255, alpha), width=2)
-    draw.ellipse((cx-108, cy-108, cx+108, cy+108), fill=(10, 10, 12, 210), outline=(255, 30, 55, 180), width=3)
-    text_center(draw, (cx, cy + 2), initials, font(96), fill=WHITE, stroke=(140, 0, 22), stroke_width=3)
+    draw.ellipse((cx-116, cy-116, cx+116, cy+116), fill=(6, 6, 8, 214), outline=(255, 38, 62, 178), width=4)
+    draw.ellipse((cx-88, cy-88, cx+88, cy+88), outline=(255, 255, 255, 34), width=2)
+    text_center(draw, (cx, cy + 2), initials, font(112), fill=WHITE, stroke=(120, 0, 20), stroke_width=3)
+    text_center(draw, (cx, cy + 144), "FREE FIRE", font(34), fill=MUTED, stroke=(0, 0, 0), stroke_width=1)
 
-    glow_line(draw, (220, 380, 980, 330), width=3)
-    glow_line(draw, (275, 110, 960, 94), width=2)
-
-    draw.text((78, 430), title, font=font(58), fill=WHITE, stroke_fill=BLACK, stroke_width=2)
-    draw.text((80, 505), subtitle, font=font(32, False), fill=MUTED)
-    draw.rounded_rectangle((78, 615, w - 78, 735), radius=26, fill=(0, 0, 0, 145), outline=(255, 255, 255, 55), width=1)
-    draw.text((112, 638), "DESDE", font=font(30), fill=(220, 220, 220))
-    draw.text((112, 672), price_line, font=font(46), fill=WHITE, stroke_fill=(120, 0, 20), stroke_width=2)
-    draw.text((w - 345, 662), "YOJHAN", font=font(42), fill=(255, 40, 62), stroke_fill=BLACK, stroke_width=2)
+    for j in range(5):
+        offset = j * 18
+        draw.line((106 + offset, 662 + j * 3, 1090 - offset, 636 + j * 2), fill=(255, 255, 255, 18 - j * 2), width=1)
 
     img = img.filter(ImageFilter.UnsharpMask(radius=1.2, percent=110, threshold=3))
     img.convert("RGB").save(ASSETS / filename, quality=94)
